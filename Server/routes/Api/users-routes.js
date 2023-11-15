@@ -14,13 +14,13 @@ router.get("/", async (req, res) => {
 
 router.post("/", async (req, res) => {
   try {
-    const postUser = await Users.create({
-      email: req.body.email,
-      password: req.body.password,
-    });
-    res.status(200).json(postUser);
+    const postUser= await Users.create({
+        email:req.body.email,
+        password:req.body.password
+    })
+res.status(200).json(postUser)
   } catch (error) {
-    res.status(500).json(err);
+    res.status(500).json(err)
   }
 });
 

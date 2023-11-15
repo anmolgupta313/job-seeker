@@ -1,25 +1,45 @@
 import { useState } from "react";
-import "../components/css/login.css";
-export default function Login() {
+import "../components/css/signUp.css";
+export default function SignUp() {
   const [inputValue, setInputValue] = useState({
     email: "",
     password: "",
   });
+
+ 
 
   function handleChange(e) {
     return setInputValue((value) => {
       return { ...value, [e.target.name]: e.target.value };
     });
   }
+  async function user(e) {
+    e.preventDefault();
+    const postUser = await fetch("http://localhost:3001/api/user", {
+      method: "POST",
+      body: JSON.stringify({
+        email: inputValue.email,
+        password: inputValue.password,
+      }),
+      headers: { "Content-type": "application/json" },
+    });
 
+    if (postUser.ok) {
+      console.log("perfect", postUser.json());
+    } else {
+      alert(postUser.statusText);
+    }
+  }
+
+  console.log(inputValue, "Value");
   return (
     <div className="login-main-div">
       <div className="heading-div">
         {" "}
-        <h1>Log In</h1>
+        <h1>Sign Up</h1>
       </div>
 
-      <form action="">
+      <form action="" onSubmit={user}>
         <div className="form-sub-div">
           <div className="email-div">
             {" "}
@@ -47,7 +67,7 @@ export default function Login() {
             </label>
           </div>
 
-          <button>Log In</button>
+          <button>Sign Up</button>
         </div>
       </form>
     </div>

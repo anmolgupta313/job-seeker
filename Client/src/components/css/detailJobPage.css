@@ -1,0 +1,70 @@
+.logo-div-employer img {
+    width: 15%;
+}
+
+
+.tab-div {
+  background: #f3f4f8;
+  padding: 0px 161px;
+}
+.tabs-div-sub {
+  display: flex;
+  column-gap: 24px;
+  align-items: center;
+}
+
+.tabs-btn {
+  padding: 13px 14px;
+  font-size: 15px;
+  font-weight: 600;
+  /* text-decoration: underline; */
+  border: none;
+  cursor: pointer;
+  background-color: #312651;
+  color: white;
+  border-radius: 7px;
+}
+
+.tabs-btn-no-id {
+  padding: 13px 14px;
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: underline;
+  border: none;
+  cursor: pointer;
+  color: #312651;
+  background-color: transparent;
+}
+
+.job-content-div {
+  text-align: left;
+  padding: 39px;
+}
+
+.job-content-div h3 {
+  color: #444262;
+  font-size: 27px;
+  margin: 0px;
+  margin-bottom: 5px;
+}
+p.sub-head {
+  color: #c1c0c8;
+  font-size: 17px;
+  font-weight: 600;
+  margin: 0px;
+}
+p.job-description-p {
+  line-height: 1.8;
+  font-size: 16px;
+  font-weight: 500;
+  color: #83829a;
+}
+
+.apply-now-btn {
+  background-color: #ff7754;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 12px;
+  font-weight: 600;
+}

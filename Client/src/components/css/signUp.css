@@ -52,3 +52,13 @@ input {
   font-size: 16px;
   font-weight: 500;
 }
+
+
+button.applynow-btn {
+  background-color: #ff7754;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 8px;
+  font-weight: 600;
+}

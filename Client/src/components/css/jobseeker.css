@@ -1,0 +1,80 @@
+.mark {
+  color: #ff7754;
+  background-color: transparent;
+}
+
+.input-btn-main-div-job-seeker {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  column-gap: 37px;
+}
+
+.input-div-job-seeker-searchbar {
+  width: 37%;
+}
+.input-div-job-seeker-searchbar input {
+  border: solid 1px;
+  padding: 11px;
+  border-radius: 4px;
+  border-color: #ff7754;
+  width: 100%;
+  background-color: #fafafc;
+}
+
+.search-icon-div img {
+  background: #ff7754;
+  border-radius: 4px;
+  padding: 9px;
+  width: 21px;
+}
+
+.main-card-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.job-card-div-sub {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 86%;
+  background-color: #fafafc;
+  margin: 20px;
+  padding: 0px 20px;
+  border-radius: 8px;
+  box-shadow: 0px 6px 20px 4px #78787817;
+}
+.job-card-content-div h4 {
+  text-decoration: none !important;
+  color: #312651;
+  font-size: 18px;
+  border: none;
+}
+
+.job-card-content-div {
+  /* display: flex; */
+  align-items: center;
+  column-gap: 42px;
+  text-align: left;
+}
+
+.emp-logo-div {
+  width: 18%;
+  padding-top: 11px;
+}
+.emp-logo-div img {
+  border-radius: 100px;
+  max-width: 100%;
+}
+
+button.applynow-btn {
+  background-color: #ff7754;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 8px;
+  font-weight: 600;
+}

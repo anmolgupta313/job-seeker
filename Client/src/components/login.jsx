@@ -1,15 +1,14 @@
 import { useState } from "react";
 import auth from "../utils/auth/auth";
 import "../components/css/signUp.css";
-export default function LogIn() {
-
-    const [userData,setUserData]= useState([])
+import { useNavigate } from "react-router-dom";
+export default function LogIn({ token, setToken }) {
+  const navigate = useNavigate();
+  const [userData, setUserData] = useState([]);
   const [inputValue, setInputValue] = useState({
     email: "",
     password: "",
   });
-
- 
 
   function handleChange(e) {
     return setInputValue((value) => {
@@ -27,16 +26,20 @@ export default function LogIn() {
       headers: { "Content-type": "application/json" },
     });
 
-
-    const resLogin= await postUser.json()
-    setUserData(resLogin)
+    const resLogin = await postUser.json();
+    setUserData(resLogin);
 
     // calling auth login function which is setting token in localstorage
-   auth.login(resLogin.token)
+    auth.login(resLogin.token);
+    const getToken = localStorage.getItem("id_token");
+
+    // const tokenn = setToken(getToken);
+    // tokenn()
+    navigate("/jobseeker");
   }
 
   console.log(inputValue, "Value");
-  console.log(userData,"UserData")
+  console.log(userData, "UserData");
   return (
     <div className="login-main-div">
       <div className="heading-div">

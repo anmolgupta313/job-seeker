@@ -66,7 +66,7 @@ export default function Header({ token, windowDimenssion, detectSize }) {
             )}
             {token ? (
               <li>
-                <Link to="/cart">Cart</Link>
+                <Link to="/savedjobs">Saved Jobs</Link>
               </li>
             ) : (
               ""
@@ -127,7 +127,7 @@ export default function Header({ token, windowDimenssion, detectSize }) {
             )}
             {token ? (
               <li>
-                <Link to="/cart">Cart</Link>
+                <Link to="/savedjobs">Saved Jobs</Link>
               </li>
             ) : (
               ""

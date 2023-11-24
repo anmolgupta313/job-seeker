@@ -34,6 +34,7 @@ export default function LogIn({ token, setToken }) {
     const getToken = localStorage.getItem("id_token");
 
     // const tokenn = setToken(getToken);
+    setToken(getToken)
     // tokenn()
     navigate("/jobseeker");
   }

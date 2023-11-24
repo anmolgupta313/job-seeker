@@ -8,13 +8,15 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 export default function JobSeeker() {
   const [data, setData] = useState([]);
+  // const [saveJob, setSaveJob] = useState({
+  //   title: "",
+  //   employerName: "",
+  //   location: "",
+  //   jobId: "",
+  // });
   const [inputQuery, setInputQuery] = useState({
     title: "",
   });
-  //   useEffect(() => {
-  //     fetch("search",inputQuery.title);
-
-  //   }, [inputQuery.title]);
 
   const fetch = async (search, query) => {
     const options = {
@@ -52,6 +54,36 @@ export default function JobSeeker() {
     return setInputQuery((value) => {
       return { ...value, [e.target.name]: e.target.value };
     });
+  }
+
+  async function saveddJobs(data) {
+    axios
+      .post("http://localhost:3001/api/savedJob", {
+        title: data.job_title,
+        img: data.employer_logo,
+        employerName: data.employer_name,
+        location: data.job_country,
+        jobId: data.job_id,
+      })
+      .then((response) => {
+        console.log(response.status);
+      });
+    // const postsavedJob =  await fetch("http://localhost:3001/api/savedJob", {
+    //   method: "POST",
+    //   body: JSON.stringify({
+    //     title: data.job_title,
+    //     employerName: data.employer_name,
+    //     location: data.job_country,
+    //     jobId: data.job_id,
+    //   }),
+    //   headers: { "Content-type": "application/json" },
+    // });
+
+    // if (postsavedJob.ok) {
+    //   console.log("perfect",postsavedJob.json());
+    // } else {
+    //   alert(postsavedJob.statusText);
+    // }
   }
 
   //   console.log(inputQuery)
@@ -113,6 +145,34 @@ export default function JobSeeker() {
                 <a target="_blank" href={data.job_google_link}>
                   <button className="applynow-btn">Apply Now</button>
                 </a>
+              </div>
+              <div>
+                <button
+                  className="applynow-btn"
+                  id={data.job_id}
+                  onClick={(e) => {
+                    console.log(e.target.id);
+                    if (e.target.id == data.job_id) {
+                      // setSaveJob(() => {
+                      //   return {
+
+                      //     title: data.job_title,
+                      //     employerName: data.employer_name,
+                      //     location: data.job_country,
+                      //     jobId: data.job_id,
+                      //   };
+                      // });
+
+                      saveddJobs(data);
+                      // console.log(saveJob);
+                      // saveJobs()
+                    } else {
+                      console.log(e.target.value, "valueee");
+                    }
+                  }}
+                >
+                  Save Job
+                </button>
               </div>
             </div>
           );

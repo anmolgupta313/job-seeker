@@ -8,6 +8,7 @@ import SignUp from "./components/signUp";
 import Header from "./components/header";
 import JobSeeker from "./components/jobseeker";
 import JobDetail from "./components/detailJobPage";
+import SavedJobs from "./components/savedJobs";
 function App() {
   const [token, setToken] = useState();
 
@@ -42,6 +43,7 @@ function App() {
           <Route path="/signUp" Component={SignUp} />
           <Route path="/jobseeker" Component={JobSeeker} />
           <Route path="/jobdetail/:job_id" Component={JobDetail} />
+          <Route path="/savedjobs" Component={SavedJobs} />
         </Routes>
       </div>
     </BrowserRouter>

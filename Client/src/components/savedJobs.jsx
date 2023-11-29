@@ -1,9 +1,12 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
-export default function SavedJobs() {
+import "../components/css/savedjob.css";
+import { Link } from "react-router-dom";
+import LogIn from "./login";
+export default function SavedJobs({token,setToken}) {
   const [savedJobData, setSavedJobData] = useState([]);
   useEffect(() => {
-    fetchSavedJobs("savedJob");
+    fetchSavedJobs("savedJob", savedJobData.length);
   }, []);
   function fetchSavedJobs(data) {
     axios.get(`http://localhost:3001/api/${data}`).then(function (response) {
@@ -11,22 +14,45 @@ export default function SavedJobs() {
       console.log(savedJobData);
     });
   }
+
+  function removeSaveJob(data) {
+    // const jobId= e.target.id
+    axios
+      .delete(`http://localhost:3001/api/savedJob/delete/${data}`)
+      .then(function (response) {
+        // setSavedJobData(response.data);
+        console.log(response.data, "done deleted");
+      });
+  }
   return (
     <div>
-      <div className="main-card-div">
+      {token?(
+      <div className="main-card-savedjob-div">
         {savedJobData.map((data) => {
           return (
-            <div className="job-card-div-sub">
+            <div className="saved-job-card-div-sub">
               <div className="logo-content-div">
-                <div className="emp-logo-div">
+                <div className="emp-savedjob-logo-div">
                   <img src={data.img} alt="" />
                 </div>
                 <div className="job-card-content-div">
-                  {/* <Link to={`/jobdetail/${data.job_id}`}> */}{" "}
-                  <h4>{data.title}</h4>
-                  {/* </Link> */}
+                  <Link to={`/jobdetail/${data.jobId}`}>
+                    {" "}
+                    <h4>{data.title}</h4>
+                  </Link>
                   <p>Employer Name: {data.employerName}</p>
                   <p>Location: {data.location}</p>
+                </div>
+                <div>
+                  <button
+                    className="remove-btn"
+                    id={data._id}
+                    onClick={(e) => {
+                      removeSaveJob(data._id);
+                    }}
+                  >
+                    Remove
+                  </button>
                 </div>
               </div>
 
@@ -34,7 +60,7 @@ export default function SavedJobs() {
             </div>
           );
         })}
-      </div>
+      </div>):(<LogIn setToken={setToken} />)}
     </div>
   );
 }

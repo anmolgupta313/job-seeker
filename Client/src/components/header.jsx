@@ -58,19 +58,20 @@ export default function Header({ token, windowDimenssion, detectSize }) {
               ""
             )}
             {token ? (
-              <li onClick={auth.logout}>
-                <Link to="/logIn">Logout</Link>
-              </li>
-            ) : (
-              ""
-            )}
-            {token ? (
               <li>
                 <Link to="/savedjobs">Saved Jobs</Link>
               </li>
             ) : (
               ""
             )}
+            {token ? (
+              <li onClick={auth.logout}>
+                <Link to="/logIn">Logout</Link>
+              </li>
+            ) : (
+              ""
+            )}
+            
           </ul>
           {/* <div className="search-div">
             <input

@@ -71,7 +71,16 @@ export default function JobDetail() {
             onClick={handleChange}
             className={tabId == 2 ? "tabs-btn" : "tabs-btn-no-id"}
           >
-          Responsibilities
+          Qualifications
+          </button>
+
+          <button
+            id="3"
+            value={tabId}
+            onClick={handleChange}
+            className={tabId == 3 ? "tabs-btn" : "tabs-btn-no-id"}
+          >
+          Benefits
           </button>
          
         </div>
@@ -86,8 +95,18 @@ export default function JobDetail() {
       )}
       {tabId == 2 && (
         <div className="job-content-div">
-              <h3>Responsibilities</h3>
-           <p>{data.job_highlights.Responsibilities.map((list)=>{
+              <h3>Qualifications</h3>
+           <p>{data.job_highlights.Qualifications.map((list)=>{
+return(<ul><li>{list}</li></ul>)
+           })}</p>
+           <a href={data.job_apply_link} target="_blank"><button className="apply-now-btn">Apply Now</button></a>
+        </div>
+      )}
+
+{tabId ==3 && (
+        <div className="job-content-div">
+              <h3>Benefits</h3>
+           <p>{data.job_highlights.Benefits.map((list)=>{
 return(<ul><li>{list}</li></ul>)
            })}</p>
            <a href={data.job_apply_link} target="_blank"><button className="apply-now-btn">Apply Now</button></a>

@@ -41,9 +41,9 @@ function App() {
             element={<LogIn token={token} setToken={setToken} />}
           />
           <Route path="/signUp" Component={SignUp} />
-          <Route path="/jobseeker" Component={JobSeeker} />
+          <Route path="/jobseeker" element={<JobSeeker token={token} setToken={setToken} /> } />
           <Route path="/jobdetail/:job_id" Component={JobDetail} />
-          <Route path="/savedjobs" Component={SavedJobs} />
+          <Route path="/savedjobs" element={<SavedJobs token={token} setToken={setToken} />} />
         </Routes>
       </div>
     </BrowserRouter>

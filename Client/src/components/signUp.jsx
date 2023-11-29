@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 import "../components/css/signUp.css";
 export default function SignUp() {
   const [inputValue, setInputValue] = useState({
@@ -7,6 +9,7 @@ export default function SignUp() {
   });
 
  
+  const navigate = useNavigate();
 
   function handleChange(e) {
     return setInputValue((value) => {
@@ -29,6 +32,9 @@ export default function SignUp() {
     } else {
       alert(postUser.statusText);
     }
+
+    navigate("/login");
+
   }
 
   console.log(inputValue, "Value");

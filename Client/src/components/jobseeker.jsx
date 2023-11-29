@@ -6,7 +6,8 @@ import search from "../logo/search.png";
 // import useFetch from "../hook/useFetch";
 import axios from "axios";
 import { Link } from "react-router-dom";
-export default function JobSeeker() {
+import LogIn from "./login";
+export default function JobSeeker({ token,setToken }) {
   const [data, setData] = useState([]);
   // const [saveJob, setSaveJob] = useState({
   //   title: "",
@@ -56,6 +57,7 @@ export default function JobSeeker() {
     });
   }
 
+  const userId = localStorage.getItem("userId");
   async function saveddJobs(data) {
     axios
       .post("http://localhost:3001/api/savedJob", {
@@ -64,6 +66,7 @@ export default function JobSeeker() {
         employerName: data.employer_name,
         location: data.job_country,
         jobId: data.job_id,
+        user: userId,
       })
       .then((response) => {
         console.log(response.status);
@@ -95,6 +98,8 @@ export default function JobSeeker() {
   console.log(data, "data");
   return (
     <div>
+     { token?(
+        <div>
       <div className="job-seeker-title-h1">
         {" "}
         <h1>
@@ -122,6 +127,7 @@ export default function JobSeeker() {
           <img src={search} alt="" />
         </div>
       </div>
+   
 
       <div className="main-card-div">
         {data.map((data) => {
@@ -140,44 +146,46 @@ export default function JobSeeker() {
                   <p>Location: {data.job_country}</p>
                 </div>
               </div>
+              <div className="job-seeker-btns-div">
+                <div>
+                  <a target="_blank" href={data.job_google_link}>
+                    <button className="applynow-btn">Apply Now</button>
+                  </a>
+                </div>
+                <div>
+                  <button
+                    className="applynow-btn"
+                    id={data.job_id}
+                    onClick={(e) => {
+                      console.log(e.target.id);
+                      if (e.target.id == data.job_id) {
+                        // setSaveJob(() => {
+                        //   return {
 
-              <div>
-                <a target="_blank" href={data.job_google_link}>
-                  <button className="applynow-btn">Apply Now</button>
-                </a>
-              </div>
-              <div>
-                <button
-                  className="applynow-btn"
-                  id={data.job_id}
-                  onClick={(e) => {
-                    console.log(e.target.id);
-                    if (e.target.id == data.job_id) {
-                      // setSaveJob(() => {
-                      //   return {
+                        //     title: data.job_title,
+                        //     employerName: data.employer_name,
+                        //     location: data.job_country,
+                        //     jobId: data.job_id,
+                        //   };
+                        // });
 
-                      //     title: data.job_title,
-                      //     employerName: data.employer_name,
-                      //     location: data.job_country,
-                      //     jobId: data.job_id,
-                      //   };
-                      // });
-
-                      saveddJobs(data);
-                      // console.log(saveJob);
-                      // saveJobs()
-                    } else {
-                      console.log(e.target.value, "valueee");
-                    }
-                  }}
-                >
-                  Save Job
-                </button>
+                        saveddJobs(data);
+                        // console.log(saveJob);
+                        // saveJobs()
+                      } else {
+                        console.log(e.target.value, "valueee");
+                      }
+                    }}
+                  >
+                    Save Job
+                  </button>
+                </div>
               </div>
             </div>
           );
         })}
       </div>
+      </div>  ) :(<LogIn setToken={setToken} />)}
     </div>
   );
 }

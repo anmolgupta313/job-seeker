@@ -30,11 +30,11 @@
     text-decoration: none;
     font-size: 17px;
     font-weight: 600;
-    color: #929292;
+    color: #312651;
   }
   
   .nav-main-div ul li a:hover {
-    color: #6bb9e6;
+    color: #ff7754;
   }
   
   .search-div input {
@@ -42,7 +42,7 @@
     margin-left: 40px;
     font-size: 14px;
     border-radius: 3px;
-    border-color: rgb(133, 133, 133);
+    border-color: #312651;
     border-width: 1.5px;
     border-style: solid;
     background-color: transparent;

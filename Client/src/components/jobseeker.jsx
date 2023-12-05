@@ -4,10 +4,19 @@ import "../components/css/jobseeker.css";
 
 import search from "../logo/search.png";
 // import useFetch from "../hook/useFetch";
+import { useDispatch, useSelector } from "react-redux"
+import { fetchApi, savedJob } from "../redux/action";
+
 import axios from "axios";
 import { Link } from "react-router-dom";
 import LogIn from "./login";
 export default function JobSeeker({ token,setToken }) {
+
+  const dispatch = useDispatch()
+  const Job= useSelector((state)=>{
+    return state
+        })
+        console.log(Job)
   const [data, setData] = useState([]);
   // const [saveJob, setSaveJob] = useState({
   //   title: "",
@@ -169,7 +178,9 @@ export default function JobSeeker({ token,setToken }) {
                         //   };
                         // });
 
-                        saveddJobs(data);
+                        // saveddJobs(data);
+
+                        dispatch(fetchApi(data))
                         // console.log(saveJob);
                         // saveJobs()
                       } else {

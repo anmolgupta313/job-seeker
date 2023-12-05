@@ -9,6 +9,9 @@ import Header from "./components/header";
 import JobSeeker from "./components/jobseeker";
 import JobDetail from "./components/detailJobPage";
 import SavedJobs from "./components/savedJobs";
+
+import { Provider } from "react-redux";
+import store from "./redux/store";
 function App() {
   const [token, setToken] = useState();
 
@@ -28,6 +31,8 @@ function App() {
     setToken(getToken);
   }, [token]);
   return (
+    <Provider store={store}>
+
     <BrowserRouter>
       <Header
         token={token}
@@ -47,6 +52,7 @@ function App() {
         </Routes>
       </div>
     </BrowserRouter>
+    </Provider>
   );
 }
 

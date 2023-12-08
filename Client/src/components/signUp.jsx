@@ -8,7 +8,6 @@ export default function SignUp() {
     password: "",
   });
 
- 
   const navigate = useNavigate();
 
   function handleChange(e) {
@@ -34,7 +33,6 @@ export default function SignUp() {
     }
 
     navigate("/login");
-
   }
 
   console.log(inputValue, "Value");

@@ -28,14 +28,14 @@ export default function LogIn({ token, setToken }) {
 
     const resLogin = await postUser.json();
     setUserData(resLogin);
-    console.log(resLogin,"res")
+    console.log(resLogin, "res");
 
     // calling auth login function which is setting token in localstorage
     auth.login(resLogin.token);
     const getToken = localStorage.getItem("id_token");
-localStorage.setItem("userId", resLogin.userId)
+    localStorage.setItem("userId", resLogin.userId);
     // const tokenn = setToken(getToken);
-    setToken(getToken)
+    setToken(getToken);
     // tokenn()
     navigate("/jobseeker");
   }

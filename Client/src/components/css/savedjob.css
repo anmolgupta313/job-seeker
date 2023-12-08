@@ -1,45 +1,43 @@
-.main-card-savedjob-div{
-    display: flex;
-    flex-direction: row;
-padding: 20px;
+.main-card-savedjob-div {
+  display: flex;
+  flex-direction: row;
+  padding: 20px;
 }
 .saved-job-card-div-sub {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 86%;
-    background-color: #fafafc;
-    margin: 20px;
-    padding: 20px 20px;
-    border-radius: 8px;
-    box-shadow: 0px 6px 20px 4px #78787817;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 86%;
+  background-color: #fafafc;
+  margin: 20px;
+  padding: 20px 20px;
+  border-radius: 8px;
+  box-shadow: 0px 6px 20px 4px #78787817;
 }
 
-
-.emp-savedjob-logo-div{
-    width: 35%;
+.emp-savedjob-logo-div {
+  width: 35%;
 }
-.logo-content-div{
-    width: 100%;
+.logo-content-div {
+  width: 100%;
 }
 .emp-savedjob-logo-div img {
-    border-radius: 100px;
-    max-width: 100%;
-  }
+  border-radius: 100px;
+  max-width: 100%;
+}
 
-  button.remove-btn {
-    background-color: #ff7754;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    padding: 8px;
-    font-weight: 600;
-    width: 100%;
-  }
-  
+button.remove-btn {
+  background-color: #ff7754;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 8px;
+  font-weight: 600;
+  width: 100%;
+}
 
-  @media (max-width:786px) {
-    .main-card-savedjob-div{
-        flex-wrap: wrap;
-    }
+@media (max-width: 786px) {
+  .main-card-savedjob-div {
+    flex-wrap: wrap;
   }
+}

@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import "../components/css/detailJobPage.css"
+import "../components/css/detailJobPage.css";
 
 export default function JobDetail() {
   const { job_id } = useParams();
@@ -49,11 +49,12 @@ export default function JobDetail() {
   console.log(data, "dataa");
   return (
     <div>
-        <div className="logo-div-employer"><img src={data.employer_logo} alt="" /></div>
+      <div className="logo-div-employer">
+        <img src={data.employer_logo} alt="" />
+      </div>
       <div>
         <h2>{data.job_title}</h2>
       </div>
-
 
       <div className="tab-div">
         <div className="tabs-div-sub">
@@ -63,7 +64,7 @@ export default function JobDetail() {
             onClick={handleChange}
             className={tabId == 1 ? "tabs-btn" : "tabs-btn-no-id"}
           >
-           About
+            About
           </button>
           <button
             id="2"
@@ -71,7 +72,7 @@ export default function JobDetail() {
             onClick={handleChange}
             className={tabId == 2 ? "tabs-btn" : "tabs-btn-no-id"}
           >
-          Qualifications
+            Qualifications
           </button>
 
           <button
@@ -80,36 +81,53 @@ export default function JobDetail() {
             onClick={handleChange}
             className={tabId == 3 ? "tabs-btn" : "tabs-btn-no-id"}
           >
-          Benefits
+            Benefits
           </button>
-         
         </div>
       </div>
       {tabId == 1 && (
         <div className="job-content-div">
-            <h3>About The Job</h3>
-            <p className="sub-head">Overview</p>
-         <p className="job-description-p">{data.job_description}</p>
-         <a href={data.job_apply_link} target="_blank"><button className="apply-now-btn">Apply Now</button></a>
+          <h3>About The Job</h3>
+          <p className="sub-head">Overview</p>
+          <p className="job-description-p">{data.job_description}</p>
+          <a href={data.job_apply_link} target="_blank">
+            <button className="apply-now-btn">Apply Now</button>
+          </a>
         </div>
       )}
       {tabId == 2 && (
         <div className="job-content-div">
-              <h3>Qualifications</h3>
-           <p>{data.job_highlights.Qualifications.map((list)=>{
-return(<ul><li>{list}</li></ul>)
-           })}</p>
-           <a href={data.job_apply_link} target="_blank"><button className="apply-now-btn">Apply Now</button></a>
+          <h3>Qualifications</h3>
+          <p>
+            {data.job_highlights.Qualifications.map((list) => {
+              return (
+                <ul>
+                  <li>{list}</li>
+                </ul>
+              );
+            })}
+          </p>
+          <a href={data.job_apply_link} target="_blank">
+            <button className="apply-now-btn">Apply Now</button>
+          </a>
         </div>
       )}
 
-{tabId ==3 && (
+      {tabId == 3 && (
         <div className="job-content-div">
-              <h3>Benefits</h3>
-           <p>{data.job_highlights.Benefits.map((list)=>{
-return(<ul><li>{list}</li></ul>)
-           })}</p>
-           <a href={data.job_apply_link} target="_blank"><button className="apply-now-btn">Apply Now</button></a>
+          <h3>Benefits</h3>
+          <p>
+            {data.job_highlights.Benefits.map((list) => {
+              return (
+                <ul>
+                  <li>{list}</li>
+                </ul>
+              );
+            })}
+          </p>
+          <a href={data.job_apply_link} target="_blank">
+            <button className="apply-now-btn">Apply Now</button>
+          </a>
         </div>
       )}
     </div>

@@ -71,7 +71,6 @@ export default function Header({ token, windowDimenssion, detectSize }) {
             ) : (
               ""
             )}
-            
           </ul>
           {/* <div className="search-div">
             <input

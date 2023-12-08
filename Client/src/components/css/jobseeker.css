@@ -70,12 +70,11 @@
   max-width: 100%;
 }
 
-
-.job-seeker-btns-div{
-display: flex;
-flex-direction: column;
-width: 20%;
-row-gap: 20px;
+.job-seeker-btns-div {
+  display: flex;
+  flex-direction: column;
+  width: 20%;
+  row-gap: 20px;
 }
 button.applynow-btn {
   background-color: #ff7754;
